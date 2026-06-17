@@ -9,7 +9,7 @@ export const Navbar=({currentPage,setCurrentPage})=>{
         {id:'about', label:'About'}
     ];
     return(
-        <nav className="sticky top-0 z-50 w-full px-6 py-4 glass-panel border-b border-white/5 flex items-center justify-between">
+        <nav className="sticky top-0 z-50 w-full px-6 py-4 bg-white/70 backdrop-blur-md border-b border-slate-200/80 dark:bg-brand-darkBg/60 dark:border-white/5 flex items-center justify-between transition-colors duration-300">
 
             <div
                 onClick={()=>setCurrentPage('home')}
@@ -18,13 +18,13 @@ export const Navbar=({currentPage,setCurrentPage})=>{
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center shadow-glow-primary">
                     <Activity className="w-6 h-6 text-white"/>
                 </div>
-                <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-indigo-200 to-brand-cyan bg-clip-text text-transparent">
+                <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-slate-950 to-slate-700 dark:from-white dark:to-indigo-200 bg-clip-text text-transparent">
                     VisualDSA
                 </span>
 
             </div>
 
-            <div className="hidden md:flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/5">
+            <div className="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-white/5 p-1 rounded-full border border-slate-200/60 dark:border-white/5">
                 {navItems.map(item=>{
                     const isActive= currentPage===item.id;
                     return(
@@ -34,7 +34,7 @@ export const Navbar=({currentPage,setCurrentPage})=>{
                             className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                                 isActive
                                 ? 'bg-gradient-to-r from-brand-primary to-brand-secondary text-white shadow-md'
-                                : 'text-slate-400 hover:text-white hover:bg-white/5'
+                                : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200/40 dark:hover:bg-white/5'
                             }`}
                         >
                             {item.label}
@@ -49,10 +49,10 @@ export const Navbar=({currentPage,setCurrentPage})=>{
                     onClick={()=>{
                         document.documentElement.classList.toggle('dark');
                     }}
-                    className="p-2.5 rounded-xl bg-white/5 border border-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+                    className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
                 >
-                    <Sun className="w-5 h-5 block dark:hidden"/>
-                    <Moon className="w-5 h-5 hidden dark:block"/> 
+                    <Sun className="w-5 h-5 hidden dark:block"/>
+                    <Moon className="w-5 h-5 block dark:hidden"/> 
                 </button>
 
                 <button

@@ -14,30 +14,30 @@ export const ComplexityPanel=()=>{
         return 'text-amber-400 bg-amber-500/10 border-amber-500/20';
     };
     return(
-        <div className="w-full flex flex-col gap-4 bg-slate-900/40 p-5 rounded-2xl border border-white/5 backdrop-blur-md">
-            <div className="flex items-center gap-2 pb-2 border-b border-white/5">
+        <div className="w-full flex flex-col gap-4 bg-white border border-slate-200/80 dark:bg-slate-900/40 p-5 rounded-2xl dark:border-white/5 backdrop-blur-md transition-colors">
+            <div className="flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-white/5">
                 <Zap className="w-4 h-4 text-brand-cyan" />
-                <h3 className="text-sm font-semibold tracking-wider uppercase text-slate-300">Complexity analysis</h3>
+                <h3 className="text-sm font-semibold tracking-wider uppercase text-slate-700 dark:text-slate-300">Complexity analysis</h3>
             </div>
 
             <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
-                    <span className="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
+                    <span className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 font-medium">
                         <ShieldCheck className="w-3.5 h-3.5 text-brand-primary" /> Time Complexity
                     </span>
                     <div className="grid grid-cols-3 gap-2">
-                        <div className="p-2.5 rounded-xl bg-white/5 border border-white/5 flex flex-col gap-1">
-                            <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Best</span>
+                        <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-white/5 dark:border-white/5 flex flex-col gap-1">
+                            <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">Best</span>
                                 <code className={`text-xs font-bold font-mono px-2 py-0.5 rounded border self-start ${getComplexityColor(meta.timeComplexity.best)}`}> {meta.timeComplexity.best}
                                 </code>
                         </div>
-                        <div className="p-2.5 rounded-xl bg-white/5 border border-white/5 flex flex-col gap-1">
-                            <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Average</span>
+                        <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-white/5 dark:border-white/5 flex flex-col gap-1">
+                            <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">Average</span>
                                 <code className={`text-xs font-bold font-mono px-2 py-0.5 rounded border self-start ${getComplexityColor(meta.timeComplexity.average)}`}> {meta.timeComplexity.average}
                                 </code>
                         </div>
-                        <div className="p-2.5 rounded-xl bg-white/5 border border-white/5 flex flex-col gap-1">
-                            <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Worst</span>
+                        <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-white/5 dark:border-white/5 flex flex-col gap-1">
+                            <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">Worst</span>
                                 <code className={`text-xs font-bold font-mono px-2 py-0.5 rounded border self-start ${getComplexityColor(meta.timeComplexity.worst)}`}> {meta.timeComplexity.worst}
                                 </code>
                         </div>
@@ -46,11 +46,11 @@ export const ComplexityPanel=()=>{
 
 
         <div className="flex flex-col gap-2">
-            <span className="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
+            <span className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 font-medium">
                 <Database className="w-3.5 h-3.5 text-brand-cyan" /> Space Complexity
             </span>
-            <div className="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between">
-                <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Worst Case</span>
+            <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-white/5 dark:border-white/5 flex items-center justify-between">
+                <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">Worst Case</span>
                     <code className={`text-xs font-bold font-mono px-2 py-0.5 rounded border ${getComplexityColor(meta.spaceComplexity)}`}> {meta.spaceComplexity}
                     </code>
             </div>
