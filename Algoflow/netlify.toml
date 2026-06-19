@@ -1,0 +1,13 @@
+[build]
+  # Directory containing the built assets (relative to this directory)
+  publish = "dist"
+
+  # Command to compile the project
+  command = "npm run build"
+
+# Redirect rule to handle SPA routing if the app starts using client-side routes,
+# and to prevent 404s on page reloads.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
