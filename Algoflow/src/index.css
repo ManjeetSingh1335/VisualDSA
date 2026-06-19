@@ -35,7 +35,7 @@
 }
 
 .glass-panel {
-  background: rgba(13, 15, 34, 0.6);
+  background: #0d0e2256;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -47,8 +47,8 @@
 
 .glass-card-hover:hover {
   transform: translateY(-4px);
-  border-color: rgba(124, 58, 237, 0.3);
-  box-shadow: 0 0 25px rgba(124, 58, 237, 0.15), 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border-color: rgba(124, 58, 237, 0.289);
+  box-shadow: 0 0 25px rgba(82, 58, 237, 0.134), 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .glow-border-purple {
@@ -70,6 +70,7 @@
   opacity: 0.4;
 }
 
+
 .grid-bg {
   background-size: 24px 24px;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
@@ -83,4 +84,32 @@
 
 .pulse-ring-active {
   animation: pulse-ring 2s infinite ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
 }

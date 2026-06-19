@@ -9,7 +9,6 @@ export const SortingVisualizer = () => {
   const swapping = currentSnapshot?.swapping || [];
   const sorted = currentSnapshot?.sorted || [];
   const pivot = currentSnapshot?.pivot;
-  // Compute maximum value in array to scale heights relatively
   const maxVal = Math.max(...array, 100);
   const getBarColorClass = (idx) => {
     if (swapping.includes(idx)) {
@@ -28,11 +27,10 @@ export const SortingVisualizer = () => {
   };
   return (
     <div className="w-full flex flex-col gap-6 bg-[#090b16] rounded-2xl border border-white/5 p-6 shadow-glass justify-end h-[360px]">
-      {/* Visualizer bars */}
       <div className="flex items-end justify-center gap-1.5 sm:gap-2 h-full w-full overflow-hidden px-2">
         <AnimatePresence initial={false}>
           {array.map((val, idx) => {
-            const heightPct = (val / maxVal) * 85; // cap at 85% of height
+            const heightPct = (val / maxVal) * 85; 
             
             return (
               <motion.div
@@ -45,11 +43,11 @@ export const SortingVisualizer = () => {
                 style={{ height: `${heightPct}%` }}
                 className={`flex-1 flex flex-col items-center justify-end rounded-t-lg min-w-[12px] max-w-[40px] relative group ${getBarColorClass(idx)}`}
               >
-                {/* Floating tooltip */}
+             
                 <div className="absolute -top-8 bg-slate-900 border border-white/10 text-white text-[10px] px-2 py-0.5 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity font-mono pointer-events-none z-10">
                   {val}
                 </div>
-                {/* Array Value Text */}
+             
                 <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-100 mb-2 leading-none">
                   {val}
                 </span>
@@ -58,7 +56,6 @@ export const SortingVisualizer = () => {
           })}
         </AnimatePresence>
       </div>
-      {/* Legend bar */}
       <div className="flex flex-wrap items-center justify-center gap-6 pt-4 border-t border-white/5 text-xs text-slate-400 font-medium select-none">
         <div className="flex items-center gap-2">
           <span className="w-3.5 h-3.5 rounded-md bg-gradient-to-t from-amber-500 to-amber-400 border border-amber-300" />

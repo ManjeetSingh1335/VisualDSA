@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { ALGORITHM_METADATA } from '@/algorithms/metadata';
 import {
@@ -54,34 +53,34 @@ const PRESET_TREE_NODES = {
 };
 
 export const VisualizerProvider = ({ children }) => {
-  // Config
-  const [algorithm, setAlgorithmState] = useState('bubble');
-  const [category, setCategory] = useState('sorting');
+ 
+  const [algorithm, setAlgorithmState] = useState(null);
+  const [category, setCategory] = useState(null);
 
-  // Playback
+
   const [snapshots, setSnapshots] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
   const timerRef = useRef(null);
 
-  // Sorting params
+  
   const [arraySize, setArraySize] = useState(20);
   const [arrayInitType, setArrayInitType] = useState('random');
   const [sortingArray, setSortingArray] = useState([]);
 
-  // Graph params
+
   const [graphNodes, setGraphNodes] = useState(PRESET_NODES);
   const [graphEdges, setGraphEdges] = useState(PRESET_EDGES);
   const [graphStartNode, setGraphStartNode] = useState('A');
   const [graphTargetNode, setGraphTargetNode] = useState('E');
 
-  // Tree params
+ 
   const [treeNodes, setTreeNodes] = useState(PRESET_TREE_NODES);
   const [treeRootId, setTreeRootId] = useState('node_1');
   const [treeInsertValue, setTreeInsertValue] = useState(20);
 
-  // DP params
+ 
   const [dpS1, setDpS1] = useState('AGGTAB');
   const [dpS2, setDpS2] = useState('GXTXAYB');
   const [dpCoins, setDpCoins] = useState([1, 3, 4, 5]);
@@ -90,17 +89,25 @@ export const VisualizerProvider = ({ children }) => {
   const [dpValues, setDpValues] = useState([1, 6, 10, 16]);
   const [dpCapacity, setDpCapacity] = useState(6);
 
-  // Set algorithm and update category
   const setAlgorithm = (algo) => {
+    if (!algo) {
+      setAlgorithmState(null);
+      setCategory(null);
+      setIsPlaying(false);
+      setCurrentStep(0);
+      setSnapshots([]);
+      return;
+    }
     const meta = ALGORITHM_METADATA[algo];
-    setAlgorithmState(algo);
-    setCategory(meta.category);
+    if (meta) {
+      setAlgorithmState(algo);
+      setCategory(meta.category);
+    }
     setIsPlaying(false);
     setCurrentStep(0);
     setSnapshots([]);
   };
 
-  // Generate initial arrays for sorting
   const generateInitialSortingArray = (size, type) => {
     const arr = [];
     for (let i = 0; i < size; i++) {
@@ -115,7 +122,7 @@ export const VisualizerProvider = ({ children }) => {
     return arr;
   };
 
-  // Generate initial state of sorting on mount/size change
+ 
   useEffect(() => {
     if (category === 'sorting') {
       const timer = setTimeout(() => {
@@ -125,7 +132,7 @@ export const VisualizerProvider = ({ children }) => {
     }
   }, [arraySize, arrayInitType, category]);
 
-  // Compute snapshots when clicking start
+
   const startVisualization = () => {
     setIsPlaying(false);
     setCurrentStep(0);
@@ -176,7 +183,7 @@ export const VisualizerProvider = ({ children }) => {
     setIsPlaying(true);
   };
 
-  // Tree insertion runs instantly to yield steps
+
   const insertIntoTree = (val) => {
     setIsPlaying(false);
     let generated;
@@ -188,7 +195,6 @@ export const VisualizerProvider = ({ children }) => {
     setSnapshots(generated);
     setCurrentStep(0);
     setIsPlaying(true);
-    // Apply the final snapshot state to the actual tree configuration
     const finalSnapshot = generated[generated.length - 1];
     setTreeNodes(finalSnapshot.nodes);
     setTreeRootId(finalSnapshot.rootId);
@@ -202,7 +208,6 @@ export const VisualizerProvider = ({ children }) => {
     setIsPlaying(false);
   };
 
-  // Controls
   const stepForward = () => {
     if (currentStep < snapshots.length - 1) {
       setCurrentStep(prev => prev + 1);
@@ -244,7 +249,6 @@ export const VisualizerProvider = ({ children }) => {
     }
   };
 
-  // Playback timer loop
   useEffect(() => {
     if (isPlaying && snapshots.length > 0) {
       const delay = Math.max(50, 450 - (speed - 1) * 120);
@@ -254,12 +258,11 @@ export const VisualizerProvider = ({ children }) => {
           setCurrentStep(prev => prev + 1);
         } else {
           setIsPlaying(false);
-          // Trigger confetti upon completion!
           confetti({
             particleCount: 80,
             spread: 60,
             origin: { y: 0.8 },
-            colors: ['#7c3aed', '#6366f1', '#06b6d4']
+            colors: ['#00DF89', '#059669', '#00c2cb']
           });
         }
       }, delay);
@@ -271,7 +274,6 @@ export const VisualizerProvider = ({ children }) => {
     };
   }, [isPlaying, currentStep, snapshots, speed]);
 
-  // Graph manipulation functions
   const addGraphNode = (x, y) => {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let label = 'A';
@@ -297,7 +299,6 @@ export const VisualizerProvider = ({ children }) => {
 
   const addGraphEdge = (from, to, weight) => {
     if (from === to) return;
-    // Check if edge exists
     const exists = graphEdges.some(
       e => (e.from === from && e.to === to) || (e.from === to && e.to === from)
     );
@@ -375,6 +376,7 @@ export const VisualizerProvider = ({ children }) => {
       value={{
         algorithm,
         category,
+        setCategory,
         setAlgorithm,
         snapshots,
         currentStep,

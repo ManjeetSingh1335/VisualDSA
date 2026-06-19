@@ -26,7 +26,6 @@ export const PlaybackControls = () => {
   if (snapshots.length === 0) return null;
   return (
     <div className="w-full flex flex-col gap-4 bg-white border border-slate-200/80 dark:bg-slate-900/40 p-5 rounded-2xl dark:border-white/5 backdrop-blur-md transition-colors">
-      {/* Scrub bar */}
       <div className="flex items-center gap-4">
         <span className="text-xs font-mono text-slate-500 dark:text-slate-400 w-12 text-right">Step {currentStep + 1}</span>
         <input
@@ -39,9 +38,7 @@ export const PlaybackControls = () => {
         />
         <span className="text-xs font-mono text-slate-500 dark:text-slate-400 w-12">{snapshots.length}</span>
       </div>
-      {/* Playback Buttons */}
       <div className="flex flex-wrap items-center justify-between gap-4">
-        {/* Step Buttons */}
         <div className="flex items-center gap-1">
           <button
             onClick={goToStart}
@@ -84,7 +81,6 @@ export const PlaybackControls = () => {
             <SkipForward className="w-4 h-4" />
           </button>
         </div>
-        {/* Speed Buttons */}
         <div className="flex items-center gap-1 bg-slate-100 dark:bg-white/5 p-1 rounded-xl border border-slate-200/60 dark:border-white/5">
           {speedOptions.map(opt => (
             <button

@@ -6,11 +6,12 @@ export const ComplexityPanel=()=>{
     const {algorithm}=useVisualizer();
     const meta=ALGORITHM_METADATA[algorithm];
     if(!meta) return null;
-    const getComplexityColor=(notation)=>{
+    const getComplexityColor=(notation, isWorst)=>{
         const n=notation.toLowerCase().replace(/\s/g, '');
         if(n==='o(1)' || n==='o(logn)') return 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20';
         if(n==='o(n)' || n==='o(n+e)') return 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20';
         if(n==='o(nlogn)') return 'text-sky-400 bg-sky-500/10 border-sky-500/20';
+        if(n==='o(n²)' || n==='o(n^2)') return 'text-red-500 dark:text-red-400 bg-red-500/10 border-red-500/20';
         return 'text-amber-400 bg-amber-500/10 border-amber-500/20';
     };
     return(
@@ -38,7 +39,7 @@ export const ComplexityPanel=()=>{
                         </div>
                         <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-white/5 dark:border-white/5 flex flex-col gap-1">
                             <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">Worst</span>
-                                <code className={`text-xs font-bold font-mono px-2 py-0.5 rounded border self-start ${getComplexityColor(meta.timeComplexity.worst)}`}> {meta.timeComplexity.worst}
+                                <code className={`text-xs font-bold font-mono px-2 py-0.5 rounded border self-start ${getComplexityColor(meta.timeComplexity.worst, true)}`}> {meta.timeComplexity.worst}
                                 </code>
                         </div>
                     </div>
@@ -54,7 +55,7 @@ export const ComplexityPanel=()=>{
                     <code className={`text-xs font-bold font-mono px-2 py-0.5 rounded border ${getComplexityColor(meta.spaceComplexity)}`}> {meta.spaceComplexity}
                     </code>
             </div>
-        </div>
+            </div>
         
       </div>
     </div>

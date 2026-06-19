@@ -12,14 +12,11 @@ export const GraphVisualizer = () => {
   return (
     <div className="w-full flex flex-col gap-6">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* Main interactive graph canvas */}
         <div className="lg:col-span-3">
           <GraphCanvas />
         </div>
-        {/* Real-time details card */}
         <div className="lg:col-span-1 flex flex-col gap-4 bg-slate-900/40 p-5 rounded-2xl border border-white/5 backdrop-blur-md justify-between">
           <div className="flex flex-col gap-4">
-            {/* Playback stack/queue detail */}
             <div className="flex flex-col gap-2">
               <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider flex items-center gap-1.5">
                 <List className="w-3.5 h-3.5 text-brand-primary" />
@@ -40,7 +37,7 @@ export const GraphVisualizer = () => {
                 )}
               </div>
             </div>
-            {/* Path distances tracking */}
+           
             <div className="flex flex-col gap-2">
               <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider flex items-center gap-1.5">
                 <Route className="w-3.5 h-3.5 text-brand-cyan" /> Distances
@@ -62,7 +59,7 @@ export const GraphVisualizer = () => {
               </div>
             </div>
           </div>
-          {/* Shortest path reconstruction result */}
+         
           {shortestPath.length > 0 && (
             <div className="p-3 bg-brand-primary/15 border border-brand-primary/20 rounded-xl">
               <span className="text-[10px] text-brand-accent uppercase tracking-wider font-bold">Path Found</span>

@@ -11,7 +11,7 @@ import{
   GitBranch,
   Network
 } from 'lucide-react';
-export const Home=({setCurrentPage,setAlgorithm})=>{
+export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
 
   const [array,setArray]=useState([45,85,20,95,60,30,75,10]);
   const [activeIndices,setActiveIndices]=useState([]);
@@ -51,9 +51,10 @@ export const Home=({setCurrentPage,setAlgorithm})=>{
   },[]);
 
 
-  const handleSelectCategoryAlgo=(algo)=>{
-    setAlgorithm(algo);
-    setCurrentPage('visualizer');
+  const handleSelectCategory=(categoryKey)=>{
+    setAlgorithm(null);
+    setCategory(categoryKey);
+    setCurrentPage('algorithms');
   };
 
 
@@ -65,27 +66,23 @@ export const Home=({setCurrentPage,setAlgorithm})=>{
             <Activity className="w-3.5 h-3.5" /> Visualize. Understand. Master.
           </div>
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
-            See Algorithms. <br/>
+            Logic in Motion
+            <br/>
             <span className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-cyan bg-clip-text text-transparent">
-              Understand Deeply.
+              Learning Simplified
             </span>
           </h1>
           <p className="text-slate-400 text-base sm:text-lg max-w-xl leading-relaxed">
-            Interactive visualizations, real-time execution, and complexity analysis to help you master computer science fundamentals.
+            Explore algorithms with smooth visualizations, live execution, and clear explanations.
           </p>
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <button
-              onClick={()=>setCurrentPage('visualizer')}
+              onClick={()=>setCurrentPage('algorithms')}
               className="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold rounded-xl shadow-glow-primary hover:shadow-brand-primary/60 hover:scale-105 active:scale-95 transition-all text-sm"
             >
               Start Exploring <ArrowRight className="w-4 h-4"/>
             </button>
-            <button
-              onClick={()=>setCurrentPage('algorithms')}
-              className="px-6 py-3.5 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold rounded-xl text-sm transition-all"
-            >
-              View All Algorithms
-            </button>
+           
           </div>
         </div>
 
@@ -143,11 +140,11 @@ export const Home=({setCurrentPage,setAlgorithm})=>{
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-slate-900/30 border border-white/5 rounded-3xl p-6 backdrop-blur-md">
         <div className="flex flex-col items-center justify-center text-center p-4">
-          <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-brand-primary bg-clip-text text-transparent">60+</span>
+          <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-brand-primary bg-clip-text text-transparent">10+</span>
           <span className="text-xs text-slate-400 font-semibold uppercase mt-1">Algorithms</span>
         </div>
         <div className="flex flex-col items-center justify-center text-center p-4 border-l border-white/5">
-          <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-brand-cyan bg-clip-text text-transparent">10K+</span>
+          <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-brand-cyan bg-clip-text text-transparent">50+</span>
           <span className="text-xs text-slate-400 font-semibold uppercase mt-1">Visualizations</span>
         </div>
         <div className="flex flex-col items-center justify-center text-center p-4 border-l border-white/5">
@@ -155,8 +152,8 @@ export const Home=({setCurrentPage,setAlgorithm})=>{
           <span className="text-xs text-slate-400 font-semibold uppercase mt-1">Smooth Animations</span>
         </div>
         <div className="flex flex-col items-center justify-center text-center p-4 border-l border-white/5">
-          <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-indigo-400 bg-clip-text text-transparent">MIT</span>
-          <span className="text-xs text-slate-400 font-semibold uppercase mt-1">Open Source License</span>
+          <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-indigo-400 bg-clip-text text-transparent">100%</span>
+          <span className="text-xs text-slate-400 font-semibold uppercase mt-1">Free & Open Source</span>
         </div>
       </div>
 
@@ -170,31 +167,31 @@ export const Home=({setCurrentPage,setAlgorithm})=>{
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="glass-panel p-6 rounded-2xl flex flex-col gap-4">
             <div className="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-accent shadow-sm">
-              <TrendingUp className="w-5 h-5" />
+              <TrendingUp className="w-5 h-5 text-violet-300" />
             </div>
-            <h3 className="text-base font-bold">Smooth Animations</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">Watch algorithms execute with fluid 60fps animations. Perfect representation of comparison, swaps, and recursive splits.</p>
+            <h3 className="text-base font-bold  text-slate-200">Smooth Animations</h3>
+            
           </div>
           <div className="glass-panel p-6 rounded-2xl flex flex-col gap-4">
             <div className="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan shadow-sm">
-              <Cpu className="w-5 h-5" />
+              <Cpu className="w-5 h-5 text-blue-300" />
             </div>
-            <h3 className="text-base font-bold">Real-time Analysis</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">Get instant time &amp; space complexity details. Observe operation metrics and memory footprints dynamically.</p>
+            <h3 className="text-base font-bold  text-slate-200">Real-time Analysis</h3>
+            
           </div>
           <div className="glass-panel p-6 rounded-2xl flex flex-col gap-4">
             <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shadow-sm">
               <Code2 className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold">Code &amp; Pseudocode</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">View clean, syntax-highlighted code. Watch the active line update dynamically synchronized with execution states.</p>
+            <h3 className="text-base font-bold  text-slate-200">Code &amp; Pseudocode</h3>
+           
           </div>
           <div className="glass-panel p-6 rounded-2xl flex flex-col gap-4">
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 shadow-sm">
-              <Play className="w-5 h-5 fill-amber-500/25" />
+              <Play className="w-5 h-5 fill-amber-500/25 text-orange-300" />
             </div>
-            <h3 className="text-base font-bold">Interactive Controls</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">Play, pause, step forward, step backward, or scrub timelines. Adjust speed and customize inputs on the fly.</p>
+            <h3 className="text-base font-bold text-slate-200">Interactive Controls</h3>
+            
           </div>
         </div>
       </div>
@@ -209,31 +206,32 @@ export const Home=({setCurrentPage,setAlgorithm})=>{
 
 
 
-          <div className="glass-panel glass-card-hover p-6 rounded-2xl flex flex-col gap-6 justify-between group">
+          <div 
+            onClick={() => handleSelectCategory('sorting')}
+            className="glass-panel glass-card-hover cursor-pointer p-6 rounded-2xl flex flex-col gap-6 justify-between group"
+          >
             <div className="flex flex-col gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+              <div className="w-12 h-12 rounded-2xl bg-indigo-700/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
                 <Layers className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold group-hover:text-brand-accent transition-colors">Sorting Algorithms</h3>
-                <p className="text-xs text-slate-400 leading-relaxed mt-1">Explore bubble, selection, insertion, merge, and quick sorting with animated bars.</p>
+                <h3 className="text-lg font-bold group-hover:text-blue-500 transition-colors  text-slate-100">Sorting Algorithms</h3>
+                <p className="text-xs text-slate-200 leading-relaxed mt-1">Explore bubble, selection, insertion, merge, and quick sorting with animated bars.</p>
               </div>
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex flex-wrap gap-1.5">
                 {['bubble','merge','quick'].map(a=>(
-                  <button
+                  <span
                     key={a}
-                    onClick={()=>handleSelectCategoryAlgo(a)}
-                    className="px-2.5 py-1 bg-white/5 border border-white/5 hover:bg-white/10 rounded-lg text-[10px] text-slate-300 font-semibold tracking-wide transition-colors uppercase"
+                    className="px-2.5 py-1 bg-white/5 border border-white/5 hover:bg-white/10 rounded-lg text-[10px] text-slate-300 font-semibold tracking-wide transition-colors uppercase cursor-pointer"
                   >
                     {a}
-                  </button>
+                  </span>
                 ))}
               </div>
               <button 
-                onClick={()=>handleSelectCategoryAlgo('bubble')}
-                className="flex items-center justify-between text-xs font-bold text-indigo-400 hover:text-white mt-2 transition-colors"
+                className="flex items-center justify-between text-xs font-bold text-indigo-400 hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
               >
                 Launch Category <ChevronRight className="w-4 h-4" />
               </button>
@@ -243,31 +241,32 @@ export const Home=({setCurrentPage,setAlgorithm})=>{
 
 
        
-          <div className="glass-panel glass-card-hover p-6 rounded-2xl flex flex-col gap-6 justify-between group">
+          <div 
+            onClick={() => handleSelectCategory('graph')}
+            className="glass-panel glass-card-hover cursor-pointer p-6 rounded-2xl flex flex-col gap-6 justify-between group"
+          >
             <div className="flex flex-col gap-4">
               <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-brand-cyan">
                 <Network className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold group-hover:text-brand-cyan transition-colors">Graph Algorithms</h3>
-                <p className="text-xs text-slate-400 leading-relaxed mt-1">Create nodes and edges on a custom builder and watch BFS, DFS, and Dijkstra traverse.</p>
+                <h3 className="text-lg font-bold group-hover:text-brand-cyan transition-colors text-slate-100">Graph Algorithms</h3>
+                <p className="text-xs text-slate-200 leading-relaxed mt-1">Create nodes and edges on a custom builder and watch BFS, DFS, and Dijkstra traverse.</p>
               </div>
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex flex-wrap gap-1.5">
                 {['bfs','dfs','dijkstra','astar'].map(a=>(
-                  <button
+                  <span
                     key={a}
-                    onClick={()=>handleSelectCategoryAlgo(a)}
-                    className="px-2.5 py-1 bg-white/5 border border-white/5 hover:bg-white/10 rounded-lg text-[10px] text-slate-300 font-semibold tracking-wide transition-colors uppercase"
+                    className="px-2.5 py-1 bg-white/5 border border-white/5 hover:bg-white/10 rounded-lg text-[10px] text-slate-300 font-semibold tracking-wide transition-colors uppercase cursor-pointer"
                   >
                     {a==='astar'? 'A*':a}
-                  </button>
+                  </span>
                 ))}
               </div>
               <button 
-                onClick={()=>handleSelectCategoryAlgo('bfs')}
-                className="flex items-center justify-between text-xs font-bold text-brand-cyan hover:text-white mt-2 transition-colors"
+                className="flex items-center justify-between text-xs font-bold text-brand-cyan hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
               >
                 Launch Category <ChevronRight className="w-4 h-4" />
               </button>
@@ -276,62 +275,64 @@ export const Home=({setCurrentPage,setAlgorithm})=>{
    
 
 
-          <div className="glass-panel glass-card-hover p-6 rounded-2xl flex flex-col gap-6 justify-between group">
+          <div 
+            onClick={() => handleSelectCategory('tree')}
+            className="glass-panel glass-card-hover cursor-pointer p-6 rounded-2xl flex flex-col gap-6 justify-between group"
+          >
             <div className="flex flex-col gap-4">
               <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-accent">
                 <GitBranch className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold group-hover:text-brand-accent transition-colors">Tree Structures</h3>
-                <p className="text-xs text-slate-400 leading-relaxed mt-1">Interact with Binary Search Trees (BST) and self-balancing AVL trees with automatic rotations.</p>
+                <h3 className="text-lg font-bold group-hover:text-brand-accent transition-colors  text-slate-100">Tree Structures</h3>
+                <p className="text-xs text-slate-200 leading-relaxed mt-1">Interact with Binary Search Trees (BST) and self-balancing AVL trees with automatic rotations.</p>
               </div>
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex flex-wrap gap-1.5">
                 {['bst','avl'].map(a=>(
-                  <button
+                  <span
                     key={a}
-                    onClick={()=>handleSelectCategoryAlgo(a)}
-                    className="px-2.5 py-1 bg-white/5 border border-white/5 hover:bg-white/10 rounded-lg text-[10px] text-slate-300 font-semibold tracking-wide transition-colors uppercase"
+                    className="px-2.5 py-1 bg-white/5 border border-white/5 hover:bg-white/10 rounded-lg text-[10px] text-slate-300 font-semibold tracking-wide transition-colors uppercase cursor-pointer"
                   >
                     {a}
-                  </button>
+                  </span>
                 ))}
               </div>
               <button 
-                onClick={()=>handleSelectCategoryAlgo('avl')}
-                className="flex items-center justify-between text-xs font-bold text-brand-accent hover:text-white mt-2 transition-colors"
+                className="flex items-center justify-between text-xs font-bold text-brand-accent hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
               >
                 Launch Category <ChevronRight className="w-4 h-4" />
               </button>
             </div>
           </div>
 
-          <div className="glass-panel glass-card-hover p-6 rounded-2xl flex flex-col gap-6 justify-between group">
+          <div 
+            onClick={() => handleSelectCategory('dp')}
+            className="glass-panel glass-card-hover cursor-pointer p-6 rounded-2xl flex flex-col gap-6 justify-between group"
+          >
             <div className="flex flex-col gap-4">
               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500">
                 <Activity className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold group-hover:text-amber-500 transition-colors">Dynamic Programming</h3>
-                <p className="text-xs text-slate-400 leading-relaxed mt-1">Solve LCS, Knapsack, and Coin Change. Watch dependency cells highlight during computation.</p>
+                <h3 className="text-lg font-bold group-hover:text-amber-500 transition-colors text-slate-100">Dynamic Programming</h3>
+                <p className="text-xs text-slate-200 leading-relaxed mt-1">Solve LCS, Knapsack, and Coin Change. Watch dependency cells highlight during computation.</p>
               </div>
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex flex-wrap gap-1.5">
                 {['lcs','knapsack','coin-change'].map(a=>(
-                  <button
+                  <span
                     key={a}
-                    onClick={()=>handleSelectCategoryAlgo(a)}
-                    className="px-2.5 py-1 bg-white/5 border border-white/5 hover:bg-white/10 rounded-lg text-[10px] text-slate-300 font-semibold tracking-wide transition-colors uppercase"
+                    className="px-2.5 py-1 bg-white/5 border border-white/5 hover:bg-white/10 rounded-lg text-[10px] text-slate-300 font-semibold tracking-wide transition-colors uppercase cursor-pointer"
                   >
                     {a==='coin-change'? 'coins':a}
-                  </button>
+                  </span>
                 ))}
               </div>
               <button 
-                onClick={()=>handleSelectCategoryAlgo('lcs')}
-                className="flex items-center justify-between text-xs font-bold text-amber-500 hover:text-white mt-2 transition-colors"
+                className="flex items-center justify-between text-xs font-bold text-amber-400 hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
               >
                 Launch Category <ChevronRight className="w-4 h-4" />
               </button>

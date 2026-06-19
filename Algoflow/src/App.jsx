@@ -1,26 +1,25 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {VisualizerProvider,useVisualizer} from '@/context/VisualizerContext';
 import {Navbar} from '@/components/layout/Navbar';
 import {Footer} from '@/components/layout/Footer';
 import {Home} from '@/pages/Home';
 import {Algorithms} from '@/pages/Algorithms';
-import {Visualizer} from '@/pages/Visualizer';
-import {Features} from '@/pages/Features';
 import {About} from '@/pages/About';
 
 const AppContent=()=>{
   const [currentPage, setCurrentPage]=useState('home');
-  const {setAlgorithm}=useVisualizer();
+  const {setAlgorithm, setCategory}=useVisualizer();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [currentPage]);
+
   const renderPage=()=>{
     switch(currentPage){
       case 'home':
-        return <Home setCurrentPage={setCurrentPage} setAlgorithm={setAlgorithm}/>;
+        return <Home setCurrentPage={setCurrentPage} setAlgorithm={setAlgorithm} setCategory={setCategory}/>;
       case 'algorithms':
         return <Algorithms setCurrentPage={setCurrentPage} setAlgorithm={setAlgorithm}/>;
-      case 'visualizer':
-        return <Visualizer/>;
-      case 'features':
-        return <Features/>;
       case 'about':
         return <About/>;
       default:
@@ -51,4 +50,3 @@ export default function App() {
   );
 }
 export { App };
-    

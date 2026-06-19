@@ -1,5 +1,6 @@
 import React from 'react';
-import { Activity,Cpu,Mail } from 'lucide-react';
+import {Activity,Mail} from 'lucide-react';
+import { FaLinkedin } from "react-icons/fa";
 
 const GithubIcon = (props) => (
   <svg
@@ -18,6 +19,24 @@ const GithubIcon = (props) => (
   </svg>
 );
 
+const Linkedin = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
 export const Footer=({setCurrentPage})=>{
     return(
         <footer className="w-full mt-auto py-10 px-6 border-t border-white/5 bg-brand-darkBg/60 backdrop-blur-md">
@@ -32,33 +51,36 @@ export const Footer=({setCurrentPage})=>{
                         VisualDSA
                     </span>
                 </div>
-
-                <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-400">
-                    <button onClick={()=>setCurrentPage('home')}  className="hover:text-white transition-colors">Home</button>
-                    <button onClick={()=>setCurrentPage('algorithms')} className="hover:text-white transition-colors">Algorithms</button>
-                    <button onClick={()=>setCurrentPage('visualizer')} className="hover:text-white transition-colors">Visualizer</button>
-                    <button onClick={()=>setCurrentPage('features')} className="hover:text-white transition-colors">Features</button>
-                    <button onClick={()=>setCurrentPage('about')} className="hover:text-white transition-colors">About</button>
-                </div>
-
                 <div className="flex items-center gap-4 text-slate-400">
-
-                    <a href="#" className="hover:text-white transition-colors" title="Github Code">
-                        <GithubIcon className="w-5 h-5"/>
+                    <a
+                        href="https://github.com/ManjeetSingh1335"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors"
+                        title="GitHub"
+                    >
+                    <GithubIcon className="w-5 h-5" />
                     </a>
-                    <a href="#" className="hover:text-white transition-colors" title="Complexity API">
-                        <Cpu className="w-5 h-5"/>
+                    <a
+                        href="https://www.linkedin.com/in/manjeet-singh-99b791321/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors"
+                        title="LinkedIn"
+                    >
+                    <FaLinkedin className="w-5 h-5" />
                     </a>
-                    <a href="#" className="hover:text-white transition-colors" title="Contact Email">
-                        <Mail className="w-5 h-5"/>
+                    <a
+                        href="mailto:manjeetsingh131813@gmail.com"
+                        className="hover:text-white transition-colors"
+                        title="Email Me"
+                    >
+                    <Mail className="w-5 h-5" />
                     </a>
-
                 </div>
-
             </div>
-                <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/5 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <span>&copy; {new Date().getFullYear()} VisualDSA Platform. Open Source under MIT License.</span>
-                    <span>Built with React, JavaScript, Tailwind CSS, &amp; Framer Motion.</span>
+                <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/5 text-center text-xs text-slate-600 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <span>&copy; {new Date().getFullYear()}  VisualDSA. Built for learners and developers.</span>
                 </div>
         </footer>
     );

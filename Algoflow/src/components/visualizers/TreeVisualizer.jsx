@@ -11,15 +11,12 @@ export const TreeVisualizer = () => {
     clearTree
   } = useVisualizer();
   const [inputValue, setInputValue] = useState('20');
-  // Read snapshot visual indicators
   const currentSnapshot = snapshots[currentStep];
   const nodes = currentSnapshot ? currentSnapshot.nodes : treeNodes;
   const rootId = currentSnapshot ? currentSnapshot.rootId : treeRootId;
   const currentNodeId = currentSnapshot?.currentNodeId;
   const highlightedIds = currentSnapshot?.highlightedIds || [];
   const action = currentSnapshot?.action;
-  // Render tree recursively inside SVG
-  // Returns SVG elements (lines and node groups)
   const renderTreeElements = (
     nodeId,
     x,
@@ -30,8 +27,7 @@ export const TreeVisualizer = () => {
     if (!nodeId || !nodes[nodeId]) return [];
     const node = nodes[nodeId];
     const elements = [];
-    const vSpace = 65; // vertical distance
-    // Draw Left Link
+    const vSpace = 65; 
     if (node.leftId && nodes[node.leftId]) {
       const lx = x - hSpace;
       const ly = y + vSpace;
@@ -48,7 +44,6 @@ export const TreeVisualizer = () => {
       );
       elements.push(...renderTreeElements(node.leftId, lx, ly, hSpace * 0.5, depth + 1));
     }
-    // Draw Right Link
     if (node.rightId && nodes[node.rightId]) {
       const rx = x + hSpace;
       const ry = y + vSpace;
@@ -65,7 +60,6 @@ export const TreeVisualizer = () => {
       );
       elements.push(...renderTreeElements(node.rightId, rx, ry, hSpace * 0.5, depth + 1));
     }
-    // Node Highlights
     const isCurrent = currentNodeId === node.id;
     const isHighlighted = highlightedIds.includes(node.id);
     let circleClass = 'fill-[#1e293b] stroke-slate-500';
@@ -77,7 +71,6 @@ export const TreeVisualizer = () => {
     }
     elements.push(
       <g key={`node-group-${node.id}`} transform={`translate(${x}, ${y})`}>
-        {/* Glow Ring for active node */}
         {isCurrent && (
           <circle
             r={24}
@@ -88,10 +81,8 @@ export const TreeVisualizer = () => {
           />
         )}
         
-        {/* Node Circle */}
         <circle r={18} className={`transition-all duration-300 stroke-[2] ${circleClass}`} />
         
-        {/* Node Value Text */}
         <text
           textAnchor="middle"
           dominantBaseline="middle"
@@ -102,7 +93,6 @@ export const TreeVisualizer = () => {
         >
           {node.value}
         </text>
-        {/* Height / Balance Factor tag */}
         <g transform="translate(24, -8)">
           <rect
             x={-15}
@@ -139,7 +129,6 @@ export const TreeVisualizer = () => {
   };
   return (
     <div className="w-full flex flex-col gap-4">
-      {/* Parameter input panel */}
       <div className="flex flex-wrap items-center justify-between gap-4 bg-slate-900/40 p-4 rounded-2xl border border-white/5">
         <form onSubmit={handleInsert} className="flex items-center gap-2">
           <input
@@ -165,16 +154,14 @@ export const TreeVisualizer = () => {
           <Trash2 className="w-3.5 h-3.5" /> Reset Tree
         </button>
       </div>
-      {/* Editor Canvas */}
+
       <div className="relative w-full h-[400px] bg-[#090b16] rounded-2xl border border-white/5 shadow-glass overflow-hidden grid-bg">
-        {/* Help Tip Overlay */}
         <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/5 text-[10px] text-slate-400">
           <HelpCircle className="w-3.5 h-3.5 text-brand-cyan" />
           <span>Insert elements to observe BST traversal &amp; AVL rotations in real-time</span>
         </div>
         {rootId ? (
           <svg className="w-full h-full select-none">
-            {/* Start recursion at midpoint of top */}
             <g transform="translate(0, 40)">
               {renderTreeElements(rootId, 400, 30, 150, 1)}
             </g>

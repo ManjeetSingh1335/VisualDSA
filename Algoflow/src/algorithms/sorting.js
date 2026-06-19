@@ -24,7 +24,7 @@ export function generateBubbleSort(arr){
                 comparing:[j,j+1],
                 swapping:[],
                 sorted:Array.from({length:i},(_,k)=>n-1-k),
-                description:'Comparing elements at index ${j} (${a[j]}) and index ${j + 1} (${a[j + 1]}).',
+                description:`Comparing elements at index ${j} (${a[j]}) and index ${j + 1} (${a[j + 1]}).`,
                 line:2
             });
             if(a[j]>a[j+1]){

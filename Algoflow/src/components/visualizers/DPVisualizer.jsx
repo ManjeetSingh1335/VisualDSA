@@ -28,7 +28,6 @@ export const DPVisualizer = () => {
   const currentRow = currentSnapshot?.currentRow ?? -1;
   const currentCol = currentSnapshot?.currentCol ?? -1;
   const dependencies = currentSnapshot?.dependencies || [];
-  // Local inputs
   const [lcs1, setLcs1] = useState(dpS1);
   const [lcs2, setLcs2] = useState(dpS2);
   const [coinsInput, setCoinsInput] = useState(dpCoins.join(','));
@@ -58,7 +57,6 @@ export const DPVisualizer = () => {
         setDpCapacity(parsedCap);
       }
     }
-    // trigger recalculation
     setTimeout(() => {
       startVisualization();
     }, 100);
@@ -67,7 +65,6 @@ export const DPVisualizer = () => {
     const isCurrent = r === currentRow && c === currentCol;
     const isDependency = dependencies.some(d => d.r === r && d.c === c);
     
-    // Header cells
     if (r === 0 || c === 0) {
       return 'bg-slate-800/80 text-slate-300 font-bold border-slate-700 text-center';
     }
@@ -77,7 +74,7 @@ export const DPVisualizer = () => {
     if (isDependency) {
       return 'bg-brand-primary/20 border-brand-primary text-brand-accent font-bold';
     }
-    // Default cells
+    
     return 'bg-white/5 border-white/5 text-slate-400';
   };
   const renderMatrixCellVal = (val) => {
@@ -86,7 +83,7 @@ export const DPVisualizer = () => {
   };
   return (
     <div className="w-full flex flex-col gap-4">
-      {/* Parameters Panel */}
+
       <form onSubmit={handleApplyParams} className="bg-slate-900/40 p-4 rounded-2xl border border-white/5 flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-1.5 text-xs text-slate-400">
@@ -174,7 +171,6 @@ export const DPVisualizer = () => {
           </button>
         </div>
       </form>
-      {/* Grid Canvas */}
       <div className="w-full bg-[#090b16] rounded-2xl border border-white/5 p-6 shadow-glass overflow-x-auto min-h-[300px] flex items-center justify-center">
         {matrix.length > 0 ? (
           <table className="border-collapse font-mono text-xs select-none">
@@ -199,7 +195,6 @@ export const DPVisualizer = () => {
           </div>
         )}
       </div>
-      {/* DP Result summary */}
       {currentSnapshot?.result !== undefined && (
         <div className="p-4 bg-brand-primary/10 border border-brand-primary/20 rounded-2xl">
           <span className="text-[10px] text-brand-accent uppercase tracking-wider font-bold">Calculation Result</span>
