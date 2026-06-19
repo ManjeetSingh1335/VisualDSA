@@ -96,11 +96,11 @@ export const Visualizer=()=>{
                         <select
                           value={arrayInitType}
                           onChange={(e) => setArrayInitType(e.target.value)}
-                          className="px-2 py-1 bg-slate-100 border border-slate-200 dark:bg-white/5 dark:border-white/10 text-slate-800 dark:text-white rounded-lg text-xs focus:outline-none transition-colors"
+                          className="px-2 py-1 bg-slate-100 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-slate-800 dark:text-white rounded-lg text-xs focus:outline-none transition-colors"
                         >
-                          <option value="random">Random</option>
-                          <option value="sorted">Sorted</option>
-                          <option value="reversed">Reversed</option>
+                          <option value="random" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Random</option>
+                          <option value="sorted" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Sorted</option>
+                          <option value="reversed" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Reversed</option>
                         </select>
                       </div>
                       <button
@@ -119,11 +119,11 @@ export const Visualizer=()=>{
                         <select
                           value={graphStartNode}
                           onChange={(e) => setGraphStartNode(e.target.value)}
-                          className="px-2.5 py-1 bg-slate-100 border border-slate-200 dark:bg-white/5 dark:border-white/10 text-slate-800 dark:text-white rounded-lg text-xs focus:outline-none transition-colors"
+                          className="px-2.5 py-1 bg-slate-100 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-slate-800 dark:text-white rounded-lg text-xs focus:outline-none transition-colors"
                         >
-                          <option value="">Select</option>
+                          <option value="" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Select</option>
                           {graphNodes.map(node => (
-                            <option key={node.id} value={node.id}>{node.label}</option>
+                            <option key={node.id} value={node.id} className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">{node.label}</option>
                           ))}
                         </select>
                       </div>
@@ -132,11 +132,11 @@ export const Visualizer=()=>{
                         <select
                           value={graphTargetNode}
                           onChange={(e) => setGraphTargetNode(e.target.value)}
-                          className="px-2.5 py-1 bg-white/5 border border-white/10 text-white rounded-lg text-xs focus:outline-none"
+                          className="px-2.5 py-1 bg-slate-100 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-slate-800 dark:text-white rounded-lg text-xs focus:outline-none transition-colors"
                         >
-                          <option value="">Select</option>
+                          <option value="" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Select</option>
                           {graphNodes.map(node => (
-                            <option key={node.id} value={node.id}>{node.label}</option>
+                            <option key={node.id} value={node.id} className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">{node.label}</option>
                           ))}
                         </select>
                       </div>
