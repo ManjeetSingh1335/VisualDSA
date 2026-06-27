@@ -171,7 +171,7 @@ export const DPVisualizer = () => {
           </button>
         </div>
       </form>
-      <div className="w-full bg-[#090b16] rounded-2xl border border-white/5 p-6 shadow-glass overflow-x-auto min-h-[300px] flex items-center justify-center">
+      <div className="w-full bg-brand-darkBg rounded-2xl border border-white/5 p-6 shadow-glass overflow-x-auto min-h-[300px] flex items-center justify-center">
         {matrix.length > 0 ? (
           <table className="border-collapse font-mono text-xs select-none">
             <tbody>

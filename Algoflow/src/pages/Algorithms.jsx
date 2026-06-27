@@ -33,16 +33,36 @@ export const Algorithms = ({ setCurrentPage, setAlgorithm }) => {
     setAlgorithm(algoKey);
   };
 
+  const getCategoryHoverClass = (cat) => {
+    switch (cat) {
+      case 'sorting': return 'group-hover:text-blue-400';
+      case 'graph': return 'group-hover:text-cyan-400';
+      case 'tree': return 'group-hover:text-emerald-400';
+      case 'dp': return 'group-hover:text-amber-400';
+      default: return 'group-hover:text-brand-accent';
+    }
+  };
+
+  const getCategoryBtnHoverClass = (cat) => {
+    switch (cat) {
+      case 'sorting': return 'hover:bg-blue-600 hover:border-blue-600 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]';
+      case 'graph': return 'hover:bg-cyan-600 hover:border-cyan-600 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.4)]';
+      case 'tree': return 'hover:bg-emerald-600 hover:border-emerald-600 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.4)]';
+      case 'dp': return 'hover:bg-amber-600 hover:border-amber-600 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.4)]';
+      default: return 'hover:bg-brand-primary hover:border-brand-primary group-hover:shadow-glow-primary';
+    }
+  };
+
   const getCategoryIcon = (cat) => {
     switch (cat) {
       case 'sorting':
-        return <Layers className="w-5 h-5 text-indigo-400" />;
+        return <Layers className="w-5 h-5 text-blue-400" />;
       case 'graph':
-        return <Network className="w-5 h-5 text-brand-cyan" />;
+        return <Network className="w-5 h-5 text-cyan-400" />;
       case 'tree':
-        return <GitBranch className="w-5 h-5 text-brand-accent" />;
+        return <GitBranch className="w-5 h-5 text-emerald-400" />;
       case 'dp':
-        return <TableProperties className="w-5 h-5 text-amber-500" />;
+        return <TableProperties className="w-5 h-5 text-amber-400" />;
     }
   };
 
@@ -75,15 +95,15 @@ export const Algorithms = ({ setCurrentPage, setAlgorithm }) => {
       
 
         <div className="relative py-16 md:py-20 text-center overflow-hidden">
-          <div className="absolute -left-10 top-6 w-48 h-48 bg-purple-400/20 rounded-full blur-3xl" />
+          <div className="absolute -left-10 top-6 w-48 h-48 bg-brand-primary/20 rounded-full blur-3xl" />
             <div className="absolute -right-10 top-6 w-48 h-48 bg-cyan-400/20 rounded-full blur-3xl" />
-              <Sparkles className="absolute left-1/4 top-8 w-5 h-5 text-purple-300 opacity-70 rotate-12" />
+              <Sparkles className="absolute left-1/4 top-8 w-5 h-5 text-brand-accent opacity-70 rotate-12" />
               <Sparkles className="absolute right-1/4 top-12 w-5 h-5 text-cyan-300 opacity-70 -rotate-12" />
                 <div className="absolute left-10 top-14 grid grid-cols-3 gap-2 opacity-30">
                   {[...Array(9)].map((_, i) => (
                     <div
                       key={i}
-                      className="w-1.5 h-1.5 rounded-full bg-purple-300"
+                      className="w-1.5 h-1.5 rounded-full bg-brand-accent"
                     />
                   ))}
                 </div>
@@ -96,7 +116,7 @@ export const Algorithms = ({ setCurrentPage, setAlgorithm }) => {
                   ))}
                 </div>
                 
-                <h1 className="text-5xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-purple-500 to-sky-500 bg-clip-text text-transparent">
+                <h1 className="text-5xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-brand-secondary via-brand-primary to-brand-accent bg-clip-text text-transparent">
                   ALGORITHMS
                 </h1>
                 <p className="mt-5 text-base md:text-lg text-slate-400 max-w-2xl mx-auto">
@@ -151,7 +171,7 @@ export const Algorithms = ({ setCurrentPage, setAlgorithm }) => {
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-100 group-hover:text-brand-accent transition-colors">
+                  <h3 className={`text-lg font-bold text-slate-100 transition-colors ${getCategoryHoverClass(meta.category)}`}>
                     {meta.name}
                   </h3>
                   <p className="text-xs text-slate-300 leading-relaxed mt-2 min-h-[40px]">
@@ -177,7 +197,7 @@ export const Algorithms = ({ setCurrentPage, setAlgorithm }) => {
                 </div>
                 <button
                   onClick={() => handleSelectAlgo(key)}
-                  className="w-full flex items-center justify-center gap-1.5 py-2.5 bg-white/5 border border-white/5 hover:bg-brand-primary hover:border-brand-primary hover:text-white rounded-xl text-xs font-bold text-slate-300 transition-all group-hover:shadow-glow-primary"
+                  className={`w-full flex items-center justify-center gap-1.5 py-2.5 bg-white/5 border border-white/5 hover:text-white rounded-xl text-xs font-bold text-slate-300 transition-all ${getCategoryBtnHoverClass(meta.category)}`}
                 >
                   Visualize <ArrowRight className="w-3.5 h-3.5" />
                 </button>

@@ -26,7 +26,7 @@ export const SortingVisualizer = () => {
     return 'bg-gradient-to-t from-slate-700 to-slate-600 border border-slate-500/20';
   };
   return (
-    <div className="w-full flex flex-col gap-6 bg-[#090b16] rounded-2xl border border-white/5 p-6 shadow-glass justify-end h-[360px]">
+    <div className="w-full flex flex-col gap-6 bg-brand-darkBg rounded-2xl border border-white/5 p-6 shadow-glass justify-end h-[360px]">
       <div className="flex items-end justify-center gap-1.5 sm:gap-2 h-full w-full overflow-hidden px-2">
         <AnimatePresence initial={false}>
           {array.map((val, idx) => {

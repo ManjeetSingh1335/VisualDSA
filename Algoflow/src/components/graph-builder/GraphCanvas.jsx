@@ -99,9 +99,9 @@ export const GraphCanvas = () => {
 
   const getNodeColor = (id) => {
     if (currentNode === id) return 'fill-amber-500 stroke-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.6)]';
-    if (shortestPath.includes(id)) return 'fill-brand-primary stroke-brand-accent drop-shadow-[0_0_8px_rgba(124,58,237,0.6)]';
+    if (shortestPath.includes(id)) return 'fill-brand-primary stroke-brand-accent drop-shadow-[0_0_8px_rgba(6, 182, 212, 0.6)]';
     if (visited.includes(id)) return 'fill-brand-cyan stroke-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]';
-    if (selectedNodeId === id) return 'fill-indigo-600 stroke-indigo-400';
+    if (selectedNodeId === id) return 'fill-brand-secondary stroke-brand-accent';
     return 'fill-[#1e293b] stroke-slate-600';
   };
 
@@ -190,7 +190,7 @@ export const GraphCanvas = () => {
         </div>
       </div>
 
-      <div className="relative w-full h-[400px] bg-[#090b16] rounded-2xl border border-white/5 shadow-glass overflow-hidden grid-bg">
+      <div className="relative w-full h-[400px] bg-brand-darkBg rounded-2xl border border-white/5 shadow-glass overflow-hidden grid-bg">
         <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/5 text-[10px] text-slate-400">
           <HelpCircle className="w-3.5 h-3.5 text-brand-primary" />
           <span>Double-click to create node | Drag node to connect | Shift+Drag node to move</span>

@@ -41,12 +41,40 @@ export const Visualizer=()=>{
     dp:'Dynamic Programming'
   };
 
+  const getCategoryBadgeClass = (cat) => {
+    switch (cat) {
+      case 'sorting': return 'bg-blue-500/15 border-blue-500/20 text-blue-400';
+      case 'graph': return 'bg-cyan-500/15 border-cyan-500/20 text-cyan-400';
+      case 'tree': return 'bg-emerald-500/15 border-emerald-500/20 text-emerald-400';
+      case 'dp': return 'bg-amber-500/15 border-amber-500/20 text-amber-400';
+      default: return 'bg-brand-primary/15 border-brand-primary/20 text-brand-accent';
+    }
+  };
+  const getCategoryTextClass = (cat) => {
+    switch (cat) {
+      case 'sorting': return 'text-blue-400';
+      case 'graph': return 'text-cyan-400';
+      case 'tree': return 'text-emerald-400';
+      case 'dp': return 'text-amber-400';
+      default: return 'text-brand-primary';
+    }
+  };
+  const getCategoryBtnClass = (cat) => {
+    switch (cat) {
+      case 'sorting': return 'bg-gradient-to-r from-blue-500 to-blue-700 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]';
+      case 'graph': return 'bg-gradient-to-r from-cyan-500 to-cyan-700 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]';
+      case 'tree': return 'bg-gradient-to-r from-emerald-500 to-emerald-700 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]';
+      case 'dp': return 'bg-gradient-to-r from-amber-500 to-amber-700 hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]';
+      default: return 'bg-gradient-to-r from-brand-primary to-brand-secondary hover:shadow-brand-primary/20';
+    }
+  };
+
   return (
     <div className="w-full py-8 px-4 max-w-7xl mx-auto flex flex-col gap-8 transition-colors duration-300">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white border border-slate-200/80 dark:bg-slate-900/40 p-6 rounded-2xl dark:border-white/5 backdrop-blur-md transition-all">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
-            <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-brand-primary/15 border border-brand-primary/20 text-brand-accent">
+            <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded border ${getCategoryBadgeClass(category)}`}>
               {categoriesMap[category] || category}
             </span>
           </div>
@@ -73,7 +101,7 @@ export const Visualizer=()=>{
             {snapshots.length === 0 && (category === 'sorting' || category === 'graph') && (
               <div className="flex flex-wrap items-center justify-between gap-4 bg-white border border-slate-200/80 dark:bg-slate-900/40 p-5 rounded-2xl dark:border-white/5 backdrop-blur-md transition-colors">
                 <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                  <Sliders className="w-4 h-4 text-brand-primary" />
+                  <Sliders className={`w-4 h-4 ${getCategoryTextClass(category)}`} />
                   <span className="font-semibold uppercase tracking-wider">Configure Parameters</span>
                 </div>
 
@@ -88,7 +116,7 @@ export const Visualizer=()=>{
                           max={50}
                           value={arraySize}
                           onChange={(e) => setArraySize(parseInt(e.target.value))}
-                          className="h-1 w-24 bg-slate-200 dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-primary"
+                          className="h-1 w-24 bg-slate-200 dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-blue-500"
                         />
                       </div>
                       <div className="flex items-center gap-2">
@@ -144,7 +172,7 @@ export const Visualizer=()=>{
                   )}
                   <button
                     onClick={startVisualization}
-                    className="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-xl text-xs font-semibold hover:shadow-brand-primary/20 hover:scale-105 active:scale-95 transition-all"
+                    className={`flex items-center gap-1.5 px-4 py-2 text-white rounded-xl text-xs font-semibold hover:scale-105 active:scale-95 transition-all ${getCategoryBtnClass(category)}`}
                   >
                     <Play className="w-3.5 h-3.5 fill-white" /> Start Visualization
                   </button>

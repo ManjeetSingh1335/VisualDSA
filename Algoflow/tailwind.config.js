@@ -9,16 +9,16 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#7c3aed',
-          secondary: '#6366f1',
-          accent: '#a78bfa',
+          primary: '#06b6d4',
+          secondary: '#0077b6',
+          accent: '#22d3ee',
           cyan: '#06b6d4',
-          darkBg: '#090b16',
+          darkBg: '#0a192f',
         },
       },
       boxShadow: {
-        'glow-primary': '0 0 15px rgba(124, 58, 237, 0.5)',
-        'glow-secondary': '0 0 15px rgba(99, 102, 241, 0.5)',
+        'glow-primary': '0 0 15px rgba(6, 182, 212, 0.5)',
+        'glow-secondary': '0 0 15px rgba(0, 119, 182, 0.5)',
         'glow-cyan': '0 0 15px rgba(6, 182, 212, 0.5)',
         'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
       },

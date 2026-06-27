@@ -152,7 +152,7 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
           <span className="text-xs text-slate-400 font-semibold uppercase mt-1">Smooth Animations</span>
         </div>
         <div className="flex flex-col items-center justify-center text-center p-4 border-l border-white/5">
-          <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-indigo-400 bg-clip-text text-transparent">100%</span>
+          <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-brand-accent bg-clip-text text-transparent">100%</span>
           <span className="text-xs text-slate-400 font-semibold uppercase mt-1">Free & Open Source</span>
         </div>
       </div>
@@ -167,7 +167,7 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="glass-panel p-6 rounded-2xl flex flex-col gap-4">
             <div className="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-accent shadow-sm">
-              <TrendingUp className="w-5 h-5 text-violet-300" />
+              <TrendingUp className="w-5 h-5 text-brand-accent" />
             </div>
             <h3 className="text-base font-bold  text-slate-200">Smooth Animations</h3>
             
@@ -180,7 +180,7 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
             
           </div>
           <div className="glass-panel p-6 rounded-2xl flex flex-col gap-4">
-            <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-accent shadow-sm">
               <Code2 className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold  text-slate-200">Code &amp; Pseudocode</h3>
@@ -211,11 +211,11 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
             className="glass-panel glass-card-hover cursor-pointer p-6 rounded-2xl flex flex-col gap-6 justify-between group"
           >
             <div className="flex flex-col gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-indigo-700/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
                 <Layers className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold group-hover:text-blue-500 transition-colors  text-slate-100">Sorting Algorithms</h3>
+                <h3 className="text-lg font-bold group-hover:text-blue-400 transition-colors  text-slate-100">Sorting Algorithms</h3>
                 <p className="text-xs text-slate-200 leading-relaxed mt-1">Explore bubble, selection, insertion, merge, and quick sorting with animated bars.</p>
               </div>
             </div>
@@ -231,7 +231,7 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
                 ))}
               </div>
               <button 
-                className="flex items-center justify-between text-xs font-bold text-indigo-400 hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
+                className="flex items-center justify-between text-xs font-bold text-blue-400 hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
               >
                 Launch Category <ChevronRight className="w-4 h-4" />
               </button>
@@ -246,11 +246,11 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
             className="glass-panel glass-card-hover cursor-pointer p-6 rounded-2xl flex flex-col gap-6 justify-between group"
           >
             <div className="flex flex-col gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-brand-cyan">
+              <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
                 <Network className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold group-hover:text-brand-cyan transition-colors text-slate-100">Graph Algorithms</h3>
+                <h3 className="text-lg font-bold group-hover:text-cyan-400 transition-colors text-slate-100">Graph Algorithms</h3>
                 <p className="text-xs text-slate-200 leading-relaxed mt-1">Create nodes and edges on a custom builder and watch BFS, DFS, and Dijkstra traverse.</p>
               </div>
             </div>
@@ -266,7 +266,7 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
                 ))}
               </div>
               <button 
-                className="flex items-center justify-between text-xs font-bold text-brand-cyan hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
+                className="flex items-center justify-between text-xs font-bold text-cyan-400 hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
               >
                 Launch Category <ChevronRight className="w-4 h-4" />
               </button>
@@ -280,11 +280,11 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
             className="glass-panel glass-card-hover cursor-pointer p-6 rounded-2xl flex flex-col gap-6 justify-between group"
           >
             <div className="flex flex-col gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-accent">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
                 <GitBranch className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold group-hover:text-brand-accent transition-colors  text-slate-100">Tree Structures</h3>
+                <h3 className="text-lg font-bold group-hover:text-emerald-400 transition-colors  text-slate-100">Tree Structures</h3>
                 <p className="text-xs text-slate-200 leading-relaxed mt-1">Interact with Binary Search Trees (BST) and self-balancing AVL trees with automatic rotations.</p>
               </div>
             </div>
@@ -300,7 +300,7 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
                 ))}
               </div>
               <button 
-                className="flex items-center justify-between text-xs font-bold text-brand-accent hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
+                className="flex items-center justify-between text-xs font-bold text-emerald-400 hover:text-white mt-2 transition-colors animate-pulse group-hover:animate-none"
               >
                 Launch Category <ChevronRight className="w-4 h-4" />
               </button>
@@ -312,11 +312,11 @@ export const Home=({setCurrentPage,setAlgorithm,setCategory})=>{
             className="glass-panel glass-card-hover cursor-pointer p-6 rounded-2xl flex flex-col gap-6 justify-between group"
           >
             <div className="flex flex-col gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
                 <Activity className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold group-hover:text-amber-500 transition-colors text-slate-100">Dynamic Programming</h3>
+                <h3 className="text-lg font-bold group-hover:text-amber-400 transition-colors text-slate-100">Dynamic Programming</h3>
                 <p className="text-xs text-slate-200 leading-relaxed mt-1">Solve LCS, Knapsack, and Coin Change. Watch dependency cells highlight during computation.</p>
               </div>
             </div>

@@ -67,7 +67,7 @@ export const TreeVisualizer = () => {
     else if (isHighlighted) {
       circleClass = action === 'rotate-left' || action === 'rotate-right'
         ? 'fill-brand-cyan stroke-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]'
-        : 'fill-brand-primary stroke-brand-accent drop-shadow-[0_0_8px_rgba(124,58,237,0.6)]';
+        : 'fill-brand-primary stroke-brand-accent drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]';
     }
     elements.push(
       <g key={`node-group-${node.id}`} transform={`translate(${x}, ${y})`}>
@@ -100,7 +100,7 @@ export const TreeVisualizer = () => {
             width={30}
             height={13}
             rx={3}
-            fill="#090b16"
+            fill="#0a192f"
             stroke="rgba(255,255,255,0.06)"
             strokeWidth={1}
           />
@@ -155,7 +155,7 @@ export const TreeVisualizer = () => {
         </button>
       </div>
 
-      <div className="relative w-full h-[400px] bg-[#090b16] rounded-2xl border border-white/5 shadow-glass overflow-hidden grid-bg">
+      <div className="relative w-full h-[400px] bg-brand-darkBg rounded-2xl border border-white/5 shadow-glass overflow-hidden grid-bg">
         <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/5 text-[10px] text-slate-400">
           <HelpCircle className="w-3.5 h-3.5 text-brand-cyan" />
           <span>Insert elements to observe BST traversal &amp; AVL rotations in real-time</span>

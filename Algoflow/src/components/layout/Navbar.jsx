@@ -31,7 +31,7 @@ export const Navbar=({currentPage,setCurrentPage})=>{
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center shadow-glow-primary">
                         <Activity className="w-6 h-6 text-white"/>
                     </div>
-                    <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-slate-950 to-slate-700 dark:from-white dark:to-indigo-200 bg-clip-text text-transparent">
+                    <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-slate-950 to-slate-700 dark:from-white dark:to-cyan-200 bg-clip-text text-transparent">
                         VisualDSA
                     </span>
 
@@ -96,7 +96,7 @@ export const Navbar=({currentPage,setCurrentPage})=>{
                                 <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center">
                                     <Activity className="w-5 h-5 text-white"/>
                                 </div>
-                                <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent">
+                                <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
                                     VisualDSA
                                 </span>
                             </div>
